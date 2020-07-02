@@ -1,0 +1,10 @@
+apiVersion: 1
+
+datasources:
+    - name: provisionedDB
+      type: influxdb
+      access: proxy
+      database: NOAA_water_database
+      user: admin
+      password: admin
+      url: http://influxdb:8086

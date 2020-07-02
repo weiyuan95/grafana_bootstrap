@@ -1,0 +1,18 @@
+# path_to_provisioning/datasources/default.yml
+apiVersion: 1
+
+providers:
+  # <string> an unique provider name. Required
+  - name: 'Test Provisioned Dashboard'
+    # <bool> disable dashboard deletion
+    disableDeletion: false
+    # <bool> enable dashboard editing
+    editable: true
+    type: file
+    # <int> how often Grafana will scan for changed dashboards
+    updateIntervalSeconds: 10
+    # <bool> allow updating provisioned dashboards from the UI
+    allowUiUpdates: true
+    options:
+      # path to dashboard definitions. Required when using the 'file' type
+      path: /etc/grafana/provisioning/dashboards

@@ -1,0 +1,46 @@
+version: "3"
+
+networks:
+  grafana:
+
+volumes:
+  influxdb-storage:
+  grafana-storage:
+
+services:
+  influxdb:
+    image: influxdb:1.8-alpine
+    ports:
+      - 8086:8086
+    networks:
+      - grafana
+    environment:
+      - INFLUXDB_USERNAME=${INFLUXDB_USER}
+      - INFLUXDB_PASSWORD=${INFLUXDB_PASSWORD}
+    volumes:
+      - influxdb-storage:/var/lib/influxdb
+      - ./bootstrap/NOAA_data.txt:/etc/bootstrap/NOAA_data.txt
+
+  grafana:
+    image: grafana/grafana:7.0.0
+    ports:
+      - 3000:3000
+    networks:
+      - grafana
+    environment: 
+      - GF_INSTALL_PLUGINS=${GF_PLUGINS}
+    volumes:
+      - grafana-storage:/var/lib/grafana
+      - ./grafana-provisioning/:/etc/grafana/provisioning
+    depends_on:
+      - influxdb
+      - flask
+
+  flask:
+    build: ./app
+    networks:
+      - grafana
+    ports:
+      - 5000:5000
+    volumes:
+      - ./app:/flask_app
