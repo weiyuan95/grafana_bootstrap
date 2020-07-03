@@ -32,6 +32,7 @@ services:
     volumes:
       - grafana-storage:/var/lib/grafana
       - ./grafana-provisioning/:/etc/grafana/provisioning
+      - ./grafana-plugins/:/var/lib/grafana/plugins
     depends_on:
       - influxdb
       - flask

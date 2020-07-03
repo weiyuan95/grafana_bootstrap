@@ -1,7 +1,3 @@
-# Sample application for tutorials
-
-This repository contains the environment for completing the tutorials at [grafana.com/tutorials](https://grafana.com/tutorials).
-
 ## Prequisites
 
 You will need to have the following installed locally to complete this workshop:
@@ -17,4 +13,8 @@ To start the sample application and the supporting services:
 
 ```
 docker-compose up -d
+```
+or if you want to run it in the foreground
+```
+docker-compose up
 ```
