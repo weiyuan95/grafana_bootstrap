@@ -7,7 +7,7 @@ app = Flask(__name__)
 def index():
     return 'wello horld'
 
-@app.route('/search', methods=['GET', 'POST'])
+@app.route('/search', methods=['POST'])
 def search():
     app.logger.info('*' * 30)
     app.logger.info('request made to /search')
@@ -23,15 +23,15 @@ def search():
     # the default
     return jsonify(search_endpoint_array)
 
-@app.route('/query', methods=['GET', 'POST'])
+@app.route('/query', methods=['POST'])
 def query():
     app.logger.info('*' * 30)
     app.logger.info('request made to /query')
     app.logger.info(request.json)
     app.logger.info('*' * 30)
-    return jsonify(search_endpoint_array)
+    return jsonify(query_fake_data)
 
-@app.route('/annotations', methods=['GET', 'POST'])
+@app.route('/annotations', methods=['POST'])
 def annotations():
     app.logger.info('*' * 30)
     app.logger.info('request made to /annotations')

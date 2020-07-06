@@ -21,3 +21,28 @@ search_endpoint_map = [
     }
 ]
 
+query_fake_data = [
+    {
+        "columns": [
+            {
+                "type": "string",
+                "text": "batch"
+            },
+            {
+                "type": "string",
+                "text": "status"
+            }
+        ],
+        "rows": [
+            [
+                "Batch A",
+                "All Good"
+            ],
+            [
+                "Batch B",
+                "Missing files"
+            ]
+        ]
+    }
+]
+

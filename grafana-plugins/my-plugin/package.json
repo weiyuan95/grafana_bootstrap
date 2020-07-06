@@ -6,7 +6,9 @@
     "build": "grafana-toolkit plugin:build",
     "test": "grafana-toolkit plugin:test",
     "dev": "grafana-toolkit plugin:dev",
-    "watch": "grafana-toolkit plugin:dev --watch"
+    "watch": "grafana-toolkit plugin:dev --watch",
+    "prettier:check": "prettier --check \"**/*.{ts,tsx,scss}\"",
+    "prettier:write": "prettier --list-different \"**/*.{ts,tsx,scss}\" --write"
   },
   "repository": "github:grafana/simple-react-panel",
   "author": "weiyuan95",
@@ -19,6 +21,7 @@
     "@grafana/data": "7.0.1",
     "@grafana/toolkit": "7.0.1",
     "@grafana/ui": "7.0.1",
+    "@types/table": "^5.0.0",
     "emotion": "10.0.27"
   },
   "engines": {
