@@ -1,6 +1,6 @@
 import React from 'react';
 import { PanelProps } from '@grafana/data';
-import { SimpleOptions } from 'types';
+import { SimpleOptions, CellContent } from 'types';
 import { css, cx } from 'emotion';
 import { DataTable } from 'table/DataTable';
 import { getGlobalStyles } from 'styles/styles';
@@ -41,7 +41,7 @@ export const DataTablePanel: React.FC<Props> = ({ options, data, width, height }
   );
 };
 
-function extractRowData(rawData: any): string[][] {
+function extractRowData(rawData: any): CellContent[][] {
   let extractedRowData = [];
   let numCols = rawData[0].values.length;
 
@@ -61,10 +61,12 @@ function extractRowData(rawData: any): string[][] {
 }
 
 // TODO: create a type instead of using any for the raw data from the datasource
-function extractHeaders(rawData: any): string[] {
-  let headers = [];
+function extractHeaders(rawData: any): CellContent[] {
+  // need to explicitly type this so that the json below can be
+  // casted to as CellContent
+  let headers: CellContent[] = [];
   for (const columnData of rawData) {
-    headers.push(columnData.name);
+    headers.push({ value: columnData.name, color: 'none' });
   }
 
   return headers;

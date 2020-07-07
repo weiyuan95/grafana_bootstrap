@@ -47,25 +47,25 @@ query_fake_data = [
         ],
         "rows": [
             [
-                "00112222_0000_AA_SG_batch",
-                33,
-                1,
-                0,
-                0
+                {"value": "00112222_0000_AA_SG_batch", "color": "none"},
+                {"value": 33, "color": "none"},
+                {"value": 1, "color": "red"},
+                {"value": 0, "color": "green"},
+                {"value": 0, "color": "green"},
             ],
             [
-                "00112222_0000_BB_SG_batch",
-                330,
-                0,
-                72,
-                0
+                {"value": "00112222_0000_BB_SG_batch", "color": "none"},
+                {"value": 330, "color": "none"},
+                {"value": 0, "color": "green"},
+                {"value": 72, "color": "red"},
+                {"value": 0, "color": "green"},
             ],
             [
-                "00112222_0000_CC_SG_batch",
-                490,
-                0,
-                0,
-                2
+                {"value": "00112222_0000_CC_SG_batch", "color": "none"},
+                {"value": 490, "color": "none"},
+                {"value": 0, "color": "green"},
+                {"value": 0, "color": "green"},
+                {"value": 2, "color": "red"},
             ]
         ]
     }
