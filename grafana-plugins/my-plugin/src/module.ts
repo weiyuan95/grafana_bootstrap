@@ -1,8 +1,8 @@
 import { PanelPlugin } from '@grafana/data';
 import { SimpleOptions } from './types';
-import { SimplePanel } from './DataTablePanel';
+import { DataTablePanel } from './DataTablePanel';
 
-export const plugin = new PanelPlugin<SimpleOptions>(SimplePanel).setPanelOptions(builder => {
+export const plugin = new PanelPlugin<SimpleOptions>(DataTablePanel).setPanelOptions(builder => {
   // panel option builder
   // shows up in display options in panel
   // everything added below are called option controls

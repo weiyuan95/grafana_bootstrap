@@ -6,16 +6,26 @@ import { getTableStyles } from 'styles/styles';
 interface Props {
   rowData: string[];
   isHeader: boolean;
+  colWidth: number;
 }
 
-export const DataRow: React.FC<Props> = ({ rowData, isHeader }) => {
+export const DataRow: React.FC<Props> = ({ rowData, isHeader, colWidth }) => {
   const tableStyles = getTableStyles();
 
   return (
     <tr>
       {rowData.map(cellText => (
-        <td className={cx(tableStyles.border, isHeader && tableStyles.header)}>
-          <div className={cx(tableStyles.cellPadding)}>{cellText}</div>
+        <td
+          className={cx(
+            tableStyles.border,
+            tableStyles.tableTd,
+            isHeader && tableStyles.header,
+            css`
+              width: ${colWidth};
+            `
+          )}
+        >
+          <span className={cx(tableStyles.cellContent)}> {cellText} </span>
         </td>
       ))}
     </tr>

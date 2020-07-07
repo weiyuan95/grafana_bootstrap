@@ -24,7 +24,7 @@ export const getGlobalStyles = stylesFactory(() => {
 
 export const getTableStyles = stylesFactory(() => {
   return {
-    cellPadding: css`
+    cellContent: css`
       padding: 5px;
     `,
     border: css`
@@ -33,6 +33,11 @@ export const getTableStyles = stylesFactory(() => {
     header: css`
       font-weight: bold;
       font-size: 16px;
+    `,
+    tableTd: css`
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     `,
   };
 });

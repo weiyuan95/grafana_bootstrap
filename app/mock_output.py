@@ -26,21 +26,46 @@ query_fake_data = [
         "columns": [
             {
                 "type": "string",
-                "text": "batch"
+                "text": "Batch Id"
             },
             {
-                "type": "string",
-                "text": "status"
+                "type": "number",
+                "text": "Successfully Processed"
+            },
+            {
+                "type": "number",
+                "text": "Suppressed due to P1 missing"
+            },
+            {
+                "type": "number",
+                "text": "Files missing in LZ"
+            },
+            {
+                "type": "number",
+                "text": "Failed at A"
             }
         ],
         "rows": [
             [
-                "Batch A",
-                "All Good"
+                "00112222_0000_AA_SG_batch",
+                33,
+                1,
+                0,
+                0
             ],
             [
-                "Batch B",
-                "Missing files"
+                "00112222_0000_BB_SG_batch",
+                330,
+                0,
+                72,
+                0
+            ],
+            [
+                "00112222_0000_CC_SG_batch",
+                490,
+                0,
+                0,
+                2
             ]
         ]
     }
