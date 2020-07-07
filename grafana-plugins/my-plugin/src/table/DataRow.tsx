@@ -3,6 +3,7 @@ import { stylesFactory, useTheme } from '@grafana/ui';
 import { css, cx } from 'emotion';
 import { getTableStyles } from 'styles/styles';
 import { CellContent } from 'types';
+import { DataCol } from './DataCol';
 
 interface Props {
   rowData: CellContent[];
@@ -14,21 +15,9 @@ export const DataRow: React.FC<Props> = ({ rowData, isHeader, colWidth }) => {
   const tableStyles = getTableStyles();
 
   return (
-    <tr>
+    <tr className={cx(isHeader && tableStyles.header)}>
       {rowData.map(({ value, color }) => (
-        <td
-          className={cx(
-            tableStyles.border,
-            tableStyles.tableTd,
-            isHeader && tableStyles.header,
-            css`
-              width: ${colWidth};
-              background-color: ${color === 'none' ? '' : color};
-            `
-          )}
-        >
-          <span className={cx(tableStyles.cellContent)}> {value} </span>
-        </td>
+        <DataCol colWidth={colWidth} cellValue={value} initialColor={color} />
       ))}
     </tr>
   );
